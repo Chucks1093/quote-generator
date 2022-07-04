@@ -35,7 +35,9 @@ body{
 }
   
 .lni-quotation {
+    text-align: center;
     font-size: 4rem;
+    display: block;
 }
   
 .quote-author {
@@ -43,5 +45,22 @@ body{
     font-size: 2rem;
     font-weight: 400;
     font-style: italic;
+}
+
+.button-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Media Query: Tablet or Smaller */
+@media screen and (max-width: 1000px) {
+    .quote-container {
+      margin: auto 10px;
+    }
+  
+    .quote-text {
+      font-size: 2.5rem;
+    }
 }
   
