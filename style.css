@@ -82,6 +82,17 @@ button:active {
 .lni-twitter-original {
     font-size: 1.5rem; 
 }
+
+.comment{
+    position: absolute;
+    bottom: 2%;
+    color: #2e2c2c;
+    font-weight: 600;
+}
+
+.comment span{
+    color: #c51010;
+}
   
 /* Loader */
 .loader {
