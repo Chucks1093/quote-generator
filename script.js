@@ -9,13 +9,13 @@ const loader = document.getElementById('loader');
 let apiQuotes = [];
 
 // pick a random index
-function randomQuote(array) {
-    return Math.floor(Math.random() * array.length)
+function randomQuote() {
+    return Math.floor(Math.random() * apiQuotes.length)
 }
 
 //Show new Quote
-function newQuote(array) {
-    const quote = array[randomQuote(array)]
+function newQuote() {
+    const quote = apiQuotes[randomQuote()]
     console.log(quote)
     // Check if author is null and changes it to unknown
     if(!quote.author) {
@@ -38,11 +38,26 @@ async function fetchQuotes() {
     try{
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
-        newQuote(apiQuotes)
+        newQuote()
     }catch (error) {
         console.log(error)
     }
 }
 
+//Send twitter Quotes
+
+function sendQuote() {
+    const quote = quoteText.textContent;
+    const author = authorText.textContent;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+    window.open(twitterUrl, '_blank');
+}
+
+//Addeventlisteners
+twitterBtn.addEventListener("click", sendQuote);
+newQuoteBtn.addEventListener("click", newQuote);
+
+
+// on load
 fetchQuotes()
 // console.log(apiQuotes)
